@@ -1,4 +1,4 @@
-import { Article } from '../models';
+import { Article } from 'models';
 
 export const LOAD_ARTICLES_REQUEST = 'LOAD_ARTICLES_REQUEST';
 export const LOAD_ARTICLES_SUCCESS = 'LOAD_ARTICLES_SUCCESS';

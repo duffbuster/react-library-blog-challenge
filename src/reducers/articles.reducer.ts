@@ -1,5 +1,6 @@
+import { Article } from 'models';
+
 import { ArticlesActionTypes } from '../actions';
-import { Article } from '../models';
 
 export interface ArticlesState {
   readonly articles: Article[];

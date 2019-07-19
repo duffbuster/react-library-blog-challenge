@@ -1,3 +1,4 @@
+import { Article } from 'models';
 import { Epic, ofType } from 'redux-observable';
 import { of } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
@@ -8,7 +9,6 @@ import {
   loadArticlesFailure,
   loadArticlesSuccess
 } from '../actions/articles.actions';
-import { Article } from '../models';
 import { API_URL } from './store';
 
 export const fetchArticlesEpic: Epic = actions$ =>
