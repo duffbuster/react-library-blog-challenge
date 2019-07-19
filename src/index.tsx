@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import App from './App';
-import DevTools from './components/Devtools/Devtools';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './store/store';
 
@@ -13,7 +12,6 @@ ReactDOM.render(
   // tslint:disable-next-line: jsx-wrap-multiline
   <Provider store={configureStore()}>
     <App />
-    <DevTools />
   </Provider>,
   document.getElementById('root')
 );

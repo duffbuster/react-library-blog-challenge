@@ -1,18 +1,30 @@
 import { applyMiddleware, compose, createStore } from 'redux';
-import thunk from 'redux-thunk';
+import { createEpicMiddleware } from 'redux-observable';
 
-import DevTools from '../components/Devtools/Devtools';
 import rootReducer from '../reducers/root.reducer';
+import { rootEpic } from './root.epic';
 
-const enhancer = compose(
-  // Middleware you want to use in development:
-  applyMiddleware(thunk),
-  // Required! Enable Redux DevTools with the monitors you chose
-  DevTools.instrument()
-);
+export const API_URL = 'http://challengenewsapi.azurewebsites.net/api/';
+
+declare global {
+  interface Window {
+    // tslint:disable-next-line: ban-types
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: Function;
+  }
+}
+
+const epicMiddleware = createEpicMiddleware();
+
+const composeEnhancers =
+  (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 export default function configureStore() {
-  const store = createStore(rootReducer, enhancer);
+  const store = createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(epicMiddleware))
+  );
+
+  epicMiddleware.run(rootEpic);
 
   return store;
 }

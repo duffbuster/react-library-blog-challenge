@@ -1,3 +1,11 @@
 import { combineReducers } from 'redux';
 
-export default combineReducers({});
+import { articlesReducer, ArticlesState } from './articles.reducer';
+
+export default combineReducers({
+  articles: articlesReducer
+});
+
+export interface RootState {
+  articles: ArticlesState;
+}

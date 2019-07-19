@@ -5,7 +5,8 @@
   "rules": {
     "import-name": false,
     "variable-name": false,
-    "trailing-comma": false
+    "trailing-comma": false,
+    "interface-name": false
   },
   "rulesDirectory": []
 }
