@@ -1,5 +1,6 @@
 import './Home.css';
 
+import { CtAlert, CtProgressSpinner } from 'ct-react-library';
 import { Article } from 'models';
 import * as React from 'react';
 
@@ -9,9 +10,21 @@ export interface HomeProps {
   error: string;
 }
 
-const Home: React.FC<HomeProps> = ({ articles, loading }) => {
+const Home: React.FC<HomeProps> = ({ articles, error, loading }) => {
+  if (error) {
+    return (
+      <div className="home error">
+        <CtAlert type="urgent">{error}</CtAlert>
+      </div>
+    );
+  }
+
   if (loading || !articles) {
-    return <div className="home">Loading...</div>;
+    return (
+      <div className="home">
+        <CtProgressSpinner />
+      </div>
+    );
   }
 
   return (
