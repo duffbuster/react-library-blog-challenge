@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import { CtHeader, CtResponsiveNav } from 'ct-react-library';
+import React from 'react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+
+import { Home } from './components';
+
+// tslint:disable-next-line: variable-name
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <CtHeader>
+          <CtResponsiveNav bp="(min-width: 850px)" speed={300}>
+            <Link to="/">Home</Link>
+            <Link to="/articles">Articles</Link>
+          </CtResponsiveNav>
+        </CtHeader>
+
+        <Route exact={true} path="/" component={Home} />
+        {/* <Route path="/about" component={About} /> */}
+        {/* <Route path="/topics" component={Topics} /> */}
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
