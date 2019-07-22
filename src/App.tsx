@@ -1,4 +1,5 @@
 import './App.css';
+import 'animate.css';
 
 import { loadArticles } from 'actions';
 import { Home } from 'components';
@@ -11,26 +12,6 @@ import { Link } from 'react-router-dom';
 import { RootState } from 'reducers/root.reducer';
 import { bindActionCreators, Dispatch } from 'redux';
 import { createBrowserHistory } from 'history';
-
-// tslint:disable-next-line: variable-name
-// const App: React.FC = () => {
-//   return (
-//     <Router>
-//       <div className="App">
-//         <CtHeader>
-//           <CtResponsiveNav bp="(min-width: 850px)" speed={300}>
-//             <Link to="/">Home</Link>
-//             <Link to="/articles">Articles</Link>
-//           </CtResponsiveNav>
-//         </CtHeader>
-
-//         <Route exact={true} path="/" component={Home} />
-//         {/* <Route path="/about" component={About} /> */}
-//         {/* <Route path="/topics" component={Topics} /> */}
-//       </div>
-//     </Router>
-//   );
-// };
 
 export interface AppProps {
   articles?: Article[];
@@ -57,7 +38,7 @@ class App extends React.Component<AppProps> {
 
     return (
       <Router history={history}>
-        <div className="App">
+        <div className="App animated fadeIn">
           <CtHeader>
             <CtResponsiveNav bp="(min-width: 850px)" speed={300}>
               <Link to="/">Home</Link>

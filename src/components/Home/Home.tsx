@@ -13,7 +13,7 @@ export interface HomeProps {
 const Home: React.FC<HomeProps> = ({ articles, error, loading }) => {
   if (error) {
     return (
-      <div className="home error">
+      <div className="home error animated fadeIn">
         <CtAlert type="urgent">{error}</CtAlert>
       </div>
     );
@@ -21,14 +21,14 @@ const Home: React.FC<HomeProps> = ({ articles, error, loading }) => {
 
   if (loading || !articles) {
     return (
-      <div className="home">
+      <div className="home animated fadeIn">
         <CtProgressSpinner />
       </div>
     );
   }
 
   return (
-    <div className="home">
+    <div className="home animated fadeIn">
       <ul>
         {articles.map(article => (
           <li key={article.id}>{article.headLine}</li>
