@@ -49,6 +49,8 @@ Set up Verdaccio locally and publish the component library:
 
 [Verdaccio](https://verdaccio.org/docs/en/installation)
 
+* In the component library, run `npm run publish` to publish to your local npm registry
+
 ## API
 
 The tech challenge uses the API from the Web Solutions newspaper site tech challenge:
