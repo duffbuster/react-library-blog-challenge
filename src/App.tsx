@@ -3,15 +3,14 @@ import 'animate.css';
 
 import { loadArticles } from 'actions';
 import { Home } from 'components';
-import { CtHeader, CtResponsiveNav } from 'ct-react-library';
+import Header from 'components/Header/Header';
+import { createBrowserHistory } from 'history';
 import { Article } from 'models';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Router } from 'react-router';
-import { Link } from 'react-router-dom';
 import { RootState } from 'reducers/root.reducer';
 import { bindActionCreators, Dispatch } from 'redux';
-import { createBrowserHistory } from 'history';
 
 export interface AppProps {
   articles?: Article[];
@@ -39,12 +38,7 @@ class App extends React.Component<AppProps> {
     return (
       <Router history={history}>
         <div className="App animated fadeIn">
-          <CtHeader>
-            <CtResponsiveNav bp="(min-width: 850px)" speed={300}>
-              <Link to="/">Home</Link>
-              <Link to="/articles">Articles</Link>
-            </CtResponsiveNav>
-          </CtHeader>
+          <Header loading={loading || false} />
 
           <Route
             exact={true}

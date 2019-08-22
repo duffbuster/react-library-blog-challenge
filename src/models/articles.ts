@@ -10,3 +10,5 @@ export interface Article {
   categoryId: number;
   relatedArticleIds: number[];
 }
+
+export type Articles = Article[];

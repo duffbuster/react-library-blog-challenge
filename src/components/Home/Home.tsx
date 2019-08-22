@@ -1,16 +1,21 @@
 import './Home.css';
 
-import { CtAlert, CtProgressSpinner } from 'ct-react-library';
-import { Article } from 'models';
+import { CtAlert } from 'ct-react-library';
+import { Articles } from 'models';
 import * as React from 'react';
+import Article from 'components/Article/Article';
 
 export interface HomeProps {
-  articles: Article[];
+  articles: Articles;
   loading: boolean;
   error: string;
 }
 
 const Home: React.FC<HomeProps> = ({ articles, error, loading }) => {
+  if (loading) {
+    return null;
+  }
+
   if (error) {
     return (
       <div className="home error animated fadeIn">
@@ -19,21 +24,13 @@ const Home: React.FC<HomeProps> = ({ articles, error, loading }) => {
     );
   }
 
-  if (loading || !articles) {
-    return (
-      <div className="home animated fadeIn">
-        <CtProgressSpinner />
-      </div>
-    );
-  }
-
   return (
-    <div className="home animated fadeIn">
-      <ul>
+    <div className="tc-home animated fadeIn">
+      <div className="tc-home--articles">
         {articles.map(article => (
-          <li key={article.id}>{article.headLine}</li>
+          <Article key={article.id} article={article} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

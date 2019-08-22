@@ -42,3 +42,15 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Verdaccio
+
+Set up Verdaccio locally and publish the component library:
+
+[Verdaccio](https://verdaccio.org/docs/en/installation)
+
+## API
+
+The tech challenge uses the API from the Web Solutions newspaper site tech challenge:
+
+[SwaggerUI](http://challengenewsapi.azurewebsites.net/swagger/ui/index)

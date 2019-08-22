@@ -1,8 +1,25 @@
+.tc-home {
+  margin-top: 100px;
+  padding: 25px 50px;
+}
+
+.tc-home .tc-home--articles {
+  margin: auto;
+  width: 50%;
+}
+
 ul {
   list-style: none;
+  padding: 0;
 }
 
 ul li {
   padding: 0.5em;
   text-align: left;
+}
+
+@media only screen and (max-width: 850px) {
+  .tc-home {
+    padding: 0 25px;
+  }
 }
